@@ -9,9 +9,25 @@ const repassword = document.getElementById("re-password");
 
 //prevent defualt submission
 form.addEventListener("submit", (event) => {
-  event.preventDefault();
   validateForm();
+  console.log(isFormValid());
+  if (isFormValid() == true) {
+    form.submit();
+  } else {
+    event.preventDefault();
+  }
 });
+
+function isFormValid() {
+  const spans = form.querySelectorAll("span");
+  let result = true;
+  spans.forEach((span) => {
+    if (span.classList.contains("error")) {
+      result = false;
+    }
+  });
+  return result;
+}
 
 //validate form
 function validateForm() {
