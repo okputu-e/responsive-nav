@@ -16,6 +16,10 @@ body {
   color: white;
 }
 
+.noscroll {
+  overflow: hidden;
+}
+
 /* reset links */
 a {
   display: block;
@@ -87,6 +91,10 @@ div.menu .menu-icon small.menu-icon-line::after {
   transform: translateY(6px);
 }
 
+div.menu .mobile-menu {
+  display: none;
+}
+
 div.menu .menu-items {
   display: flex;
   align-items: center;
@@ -131,20 +139,47 @@ span.error {
 
   div.menu .menu-items {
     display: none;
-    position: absolute;
-    top: 5rem;
-    left: 0;
-    padding: 0;
-    background-color: rgb(74, 73, 73);
-    width: 100%;
   }
 
-  div.menu .menu-items a {
+  div.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(73, 72, 72);
+  }
+
+  div.menu .mobile-menu {
+    z-index: 200;
+    position: absolute;
+    top: 10rem;
+    left: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  div.menu .menu-icon.open small.menu-icon-line {
+    background-color: transparent;
+    transition: all 1s ease-in-out;
+  }
+  div.menu .menu-icon.open small.menu-icon-line::before {
+    transform: rotate(45deg);
+    transition: all 1s ease-in-out;
+  }
+  div.menu .menu-icon.open small.menu-icon-line::after {
+    transform: rotate(-45deg);
+    transition: all 1s ease-in-out;
+  }
+
+  div.menu .mobile-menu a {
     margin: 0;
     border-bottom: 1px dotted white;
-    padding: 0.5rem 2rem;
+    padding: 0.5rem 0;
+    font-size: 2.5rem;
   }
-  div.menu .menu-items a:hover {
+  div.menu .mobile-menu a:hover {
     background-color: black;
     color: white;
   }

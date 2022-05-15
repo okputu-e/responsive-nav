@@ -1,15 +1,23 @@
 //nav menu
+const body = document.querySelector("body");
+const overly = document.querySelector(".overlay");
 const menuIcon = document.getElementById("menu-icon");
-const menuItems = document.getElementById("menu-items");
+const mobileMenu = document.getElementById("mobile-menu");
 let isOpen = false;
 
 //add event to menuIcon
 menuIcon.addEventListener("click", () => {
   if (!isOpen) {
-    menuItems.style.display = "block";
+    menuIcon.classList.add("open");
+    mobileMenu.style.display = "block";
+    overly.style.display = "block";
+    body.classList.add("noscroll");
     isOpen = true;
   } else {
-    menuItems.style.display = "none";
+    menuIcon.classList.remove("open");
+    mobileMenu.style.display = "none";
+    overly.style.display = "none";
+    body.classList.remove("noscroll");
     isOpen = false;
   }
 });
