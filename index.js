@@ -1,9 +1,26 @@
+//nav menu
+const menuIcon = document.getElementById("menu-icon");
+const menuItems = document.getElementById("menu-items");
+let isOpen = false;
+
+//add event to menuIcon
+menuIcon.addEventListener("click", () => {
+  if (!isOpen) {
+    menuItems.style.display = "block";
+    isOpen = true;
+  } else {
+    menuItems.style.display = "none";
+    isOpen = false;
+  }
+});
+
 //get all inputs
 const form = document.getElementById("form");
 const username = document.getElementById("username");
 const email = document.getElementById("email");
 const address = document.getElementById("address");
 const phone = document.getElementById("phone");
+const genderRadios = document.getElementsByName("gender");
 const password = document.getElementById("password");
 const repassword = document.getElementById("re-password");
 
@@ -77,6 +94,13 @@ function validateForm() {
     setError(email, "Provide a valid email address");
   }
 
+  //gender
+  if (genderRadios[0].checked || genderRadios[1].checked) {
+    setSuccess(genderRadios[0] || genderRadios[1]);
+  } else {
+    setError(genderRadios[0] || genderRadios[1], "Please select a gender");
+  }
+
   //password
   if (password.value.trim() == "") {
     setError(password, "Password can not be empty");
@@ -99,6 +123,7 @@ function validateForm() {
   }
 }
 
+// set error message
 function setError(element, errorMessage) {
   const parent = element.parentElement;
   const span = parent.querySelector("span");
@@ -109,6 +134,7 @@ function setError(element, errorMessage) {
   span.textContent = errorMessage;
 }
 
+// set success message
 function setSuccess(element) {
   const parent = element.parentElement;
   const span = parent.querySelector("span");
@@ -118,6 +144,7 @@ function setSuccess(element) {
   span.classList.add("success");
 }
 
+//verify email
 function isEmailValid(email) {
   const reg =
     /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
@@ -125,6 +152,7 @@ function isEmailValid(email) {
   return reg.test(email);
 }
 
+//validate phone number
 function validatePhoneNumber(number) {
   var re = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
 
