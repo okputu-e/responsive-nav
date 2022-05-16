@@ -189,7 +189,7 @@ span.error {
   position: relative;
 }
 
-#eyePassword {
+i.far {
   position: absolute;
   right: 1rem;
   top: 2.7rem;

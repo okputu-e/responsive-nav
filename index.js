@@ -35,7 +35,6 @@ const repassword = document.getElementById("re-password");
 //prevent defualt submission
 form.addEventListener("submit", (event) => {
   validateForm();
-  console.log(isFormValid());
   if (isFormValid() == true) {
     form.submit();
   } else {
@@ -167,14 +166,29 @@ function validatePhoneNumber(number) {
   return re.test(number);
 }
 
-//view password
-const viewPassword = document.getElementById("eyePassword");
+//get password eye
+const viewPassword = document.querySelectorAll(".far");
+const allPassword = document.querySelectorAll(".password");
 
-viewPassword.addEventListener("click", function (e) {
-  // toggle the type attribute
-  const type =
-    password.getAttribute("type") === "password" ? "text" : "password";
-  password.setAttribute("type", type);
-  // toggle the eye slash icon
-  this.classList.toggle("fa-eye-slash");
-});
+//get index and call toggle function
+for (let index = 0; index < viewPassword.length; index++) {
+  if (index == 0) {
+    toggleView(viewPassword, allPassword, index);
+  } else {
+    toggleView(viewPassword, allPassword, index);
+  }
+}
+
+//toggle type and icon class based
+function toggleView(eventElement, inputValue, index) {
+  eventElement[index].addEventListener("click", function (e) {
+    // toggle the type attribute
+    const type =
+      inputValue[index].getAttribute("type") === "password"
+        ? "text"
+        : "password";
+    inputValue[index].setAttribute("type", type);
+    // toggle the eye slash icon
+    this.classList.toggle("fa-eye-slash");
+  });
+}
