@@ -11,6 +11,11 @@
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    />
+
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
@@ -110,7 +115,7 @@
         <br />
         <span aria-live="polite"></span>
       </fieldset>
-      <div class="mb-3 form-input">
+      <div class="mb-3 form-input password-container">
         <label for="password" class="form-label">Password</label>
 
         <input
@@ -121,6 +126,7 @@
           placeholder="new password"
           autocomplete="new-password"
         />
+        <i class="far fa-eye" id="eyePassword"></i>
         <span aria-live="polite"></span>
       </div>
       <div class="mb-3 form-input">

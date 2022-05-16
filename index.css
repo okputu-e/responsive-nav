@@ -184,3 +184,15 @@ span.error {
     color: white;
   }
 }
+
+.password-container {
+  position: relative;
+}
+
+#eyePassword {
+  position: absolute;
+  right: 1rem;
+  top: 63%;
+  color: rgb(255, 0, 0);
+  cursor: pointer;
+}
