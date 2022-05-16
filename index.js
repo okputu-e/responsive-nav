@@ -162,7 +162,7 @@ function isEmailValid(email) {
 
 //validate phone number
 function validatePhoneNumber(number) {
-  var re = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
+  var re = /^\(?(\d{4})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
 
   return re.test(number);
 }
